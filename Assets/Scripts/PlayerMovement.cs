@@ -74,13 +74,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (isGroundedCollider) {
-            //Debug.Log("grounded");
+            if(!isGrounded) Debug.Log("grounded");
             isGrounded = true;
             
             //TODO: Apply impulse force on object jumped off of (aka `collision`)
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (isGroundedCollider)
+        {
+            Debug.Log("fell");
+            isGrounded = false;
         }
     }
 
