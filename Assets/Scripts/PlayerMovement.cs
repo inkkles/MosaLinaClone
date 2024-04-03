@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
     bool jump;
 
     //public variables
-    public float playerSpeed = 2f;
-    public float jumpForce = 4000f;
+    public float maxVelocity = 2f;
+    public float jumpForce = 275f;
+    public float acceleration = 10000f;
     
 
     //private variables
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     BoxCollider2D bodyCollider;
     CapsuleCollider2D isGroundedCollider;
     bool isGrounded;
+    int horizontalMove;
 
 
 
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         bodyCollider = GetComponent<BoxCollider2D>();
         isGroundedCollider = GetComponent<CapsuleCollider2D>();
         isGrounded = false;
+        horizontalMove = 0;
 
     }
 
@@ -43,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         left = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
         jump = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Y) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.J);
 
-        int horizontalMove = 0;
+        horizontalMove = 0;
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -59,19 +62,41 @@ public class PlayerMovement : MonoBehaviour
             scale.x = 1f;
             transform.localScale = scale;
         }
+        //Debug.Log(horizontalMove);
 
         //movement
-        if (isGrounded)
+        if (jump && isGrounded) Jump();
+
+    }
+
+
+    private void FixedUpdate()
+    {
+        //rb.velocity = new Vector2(horizontalMove * playerSpeed * Time.fixedDeltaTime, rb.velocity.y);
+        Vector2 movementPlane = new Vector2(rb.velocity.x, 0);
+
+        /*
+        Debug.Log(movementPlane.magnitude);
+        if (movementPlane.magnitude < maxVelocity)
         {
-            //grounded movement is dragless
-            this.transform.position += new Vector3(horizontalMove * playerSpeed * Time.deltaTime, 0, 0);
-            if (jump) Jump();
+            rb.AddForce(new Vector2(horizontalMove * acceleration * Time.fixedDeltaTime, 0), ForceMode2D.Force);
         }
         else
         {
-            //same as grounded movement, should change to deal with momentum like in game
-            this.transform.position += new Vector3(horizontalMove * playerSpeed * Time.deltaTime, 0, 0);
+            rb.velocity = new Vector2(maxVelocity, 0);
+            Debug.Log("terminal velocity");
         }
+        */
+        rb.AddForce(new Vector2(horizontalMove * acceleration * Time.fixedDeltaTime, 0), ForceMode2D.Force);
+
+        if(movementPlane.magnitude > maxVelocity)
+        {
+            rb.velocity = new Vector2(maxVelocity, rb.velocity.y);
+        }
+
+        
+
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)

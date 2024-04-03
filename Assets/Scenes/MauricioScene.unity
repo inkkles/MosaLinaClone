@@ -1660,8 +1660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34d7df1d4b8fce44aee1e1a63954cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 3
+  maxVelocity: 2
   jumpForce: 275
+  acceleration: 10000
 --- !u!50 &1175347112
 Rigidbody2D:
   serializedVersion: 4
@@ -1675,7 +1676,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.1
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: dfdcf0a13610d0549abbab0a554c3cdc, type: 2}
@@ -1833,8 +1834,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0028853978, y: -0.33}
-  m_Size: {x: 0.9, y: 0.1}
+  m_Offset: {x: 0.002885398, y: -0.33}
+  m_Size: {x: 1.08, y: 0.1}
   m_Direction: 1
 --- !u!1 &1438482390
 GameObject:
