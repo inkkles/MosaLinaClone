@@ -3,7 +3,15 @@ guid: b14885ec59d358a4ebc3269dcb7520f9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - objgravboots: {instanceID: 0}
+  - objspear: {fileID: 6478188849354533219, guid: 660f76e479f33a14e883782b66303662, type: 3}
+  - objdelete: {instanceID: 0}
+  - objphaser: {instanceID: 0}
+  - objbutterfly: {instanceID: 0}
+  - objcamera: {instanceID: 0}
+  - objbouncer: {instanceID: 0}
+  - objbox: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

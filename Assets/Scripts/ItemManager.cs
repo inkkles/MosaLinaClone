@@ -35,7 +35,7 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        /*
         uses = new Dictionary<GameObject, int>();
         uses.Add(objgravboots, 2);
         uses.Add(objspear, 4);
@@ -45,7 +45,7 @@ public class ItemManager : MonoBehaviour
         uses.Add(objcamera, 1);
         uses.Add(objbouncer, 2);
         uses.Add(objbox, 6);
-
+        */
         currentItemNumber = 0;
 
         currentUses = new int[3];
@@ -60,7 +60,7 @@ public class ItemManager : MonoBehaviour
         if(isPlaytest)
         {
             inventory[0] = objspear;
-            currentUses[0] = uses[objspear];
+            currentUses[0] = 4;
         } else
         {
             //use once all objects are implemented
@@ -90,11 +90,6 @@ public class ItemManager : MonoBehaviour
             }
 
         }
-
-
-
-
-
 
 
 
@@ -131,9 +126,17 @@ public class ItemManager : MonoBehaviour
         //spawn in object
         if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
         {
-            Instantiate(inventory[currentItemNumber]);
+            if (currentUses[currentItemNumber] > 0)
+            {
+                Instantiate(inventory[currentItemNumber]);
+                currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+            }
+
         }
        
         
     }
+
+
+
 }
