@@ -274,6 +274,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5749494184600913375, guid: 036ecbfa0d4e3ce4f8f43f3b60022b6b, type: 3}
       insertIndex: 5
       addedObject: {fileID: 174114725}
+    - targetCorrespondingSourceObject: {fileID: 5749494184600913375, guid: 036ecbfa0d4e3ce4f8f43f3b60022b6b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 174114726}
   m_SourcePrefab: {fileID: 100100000, guid: 036ecbfa0d4e3ce4f8f43f3b60022b6b, type: 3}
 --- !u!1 &174114724 stripped
 GameObject:
@@ -298,6 +301,27 @@ MonoBehaviour:
   downDist: 1
   heightBuffer: 0.5
   targetObject: {fileID: 614649507}
+--- !u!114 &174114726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174114724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14885ec59d358a4ebc3269dcb7520f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objgravboots: {fileID: 0}
+  objspear: {fileID: 958041708862838710, guid: 88593df8ca96d2744b407d3d5173867b, type: 3}
+  objdelete: {fileID: 0}
+  objphaser: {fileID: 0}
+  objbutterfly: {fileID: 0}
+  objcamera: {fileID: 0}
+  objbouncer: {fileID: 0}
+  objbox: {fileID: 0}
+  isPlaytest: 0
 --- !u!1001 &545759708
 PrefabInstance:
   m_ObjectHideFlags: 0
