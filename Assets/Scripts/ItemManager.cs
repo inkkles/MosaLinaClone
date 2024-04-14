@@ -17,6 +17,8 @@ public class ItemManager : MonoBehaviour
     public GameObject objbouncer;
     public GameObject objbox;
 
+    public bool isPlaytest;
+
 
 
 
@@ -54,39 +56,46 @@ public class ItemManager : MonoBehaviour
 
 
         //testing for monday
-        inventory[0] = objspear;
-        currentUses[0] = uses[objspear];
 
-
-
-
-
-        //use once all objects are implemented
-        /*
-        totalObjects.Add(objgravboots);
-        totalObjects.Add(objspear);
-        totalObjects.Add(objdelete);
-        totalObjects.Add(objphaser);
-        totalObjects.Add(objbutterfly);
-        totalObjects.Add(objcamera);
-        totalObjects.Add(objbouncer);
-        totalObjects.Add(objbox);
-
-        currentItemNumber = 0;
-
-        currentUses = new int[3];
-        inventory = new GameObject[3];
-
-        for(int i = 0; i < 3; i++)
+        if(isPlaytest)
         {
-            int randNum = Random.Range(0, totalObjects.Count - 1);
-            inventory[i] = totalObjects[randNum];
-            currentUses[i] = uses[totalObjects[randNum]];
-            totalObjects.Remove(totalObjects[randNum]);
+            inventory[0] = objspear;
+            currentUses[0] = uses[objspear];
+        } else
+        {
+            //use once all objects are implemented
 
+            totalObjects.Add(objgravboots);
+            totalObjects.Add(objspear);
+            totalObjects.Add(objdelete);
+            totalObjects.Add(objphaser);
+            totalObjects.Add(objbutterfly);
+            totalObjects.Add(objcamera);
+            totalObjects.Add(objbouncer);
+            totalObjects.Add(objbox);
+
+            currentItemNumber = 0;
+
+            currentUses = new int[3];
+            inventory = new GameObject[3];
+
+            for (int i = 0; i < 3; i++)
+            {
+                int randNum = Random.Range(0, totalObjects.Count - 1);
+                inventory[i] = totalObjects[randNum];
+                currentUses[i] = uses[totalObjects[randNum]];
+                totalObjects.Remove(totalObjects[randNum]);
+
+
+            }
 
         }
-        */
+
+
+
+
+
+
 
 
         //use debugger to print out names of objects
@@ -110,20 +119,21 @@ public class ItemManager : MonoBehaviour
     void Update()
     {
         //switch held object
+        /*
         if (Input.GetKeyDown(KeyCode.C))
         {
             currentItemNumber++;
             if (currentUses[currentItemNumber] == 0) currentItemNumber++;
             if (currentItemNumber <= 3) currentItemNumber = 0;
         }
-
-        /*
+        */
+        
         //spawn in object
         if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
         {
             Instantiate(inventory[currentItemNumber]);
         }
-        */
+       
         
     }
 }
