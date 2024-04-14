@@ -40,11 +40,6 @@ public class SpearMovement : MonoBehaviour
         isStuck = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate()
     {
@@ -57,6 +52,7 @@ public class SpearMovement : MonoBehaviour
         {
             isStuck = true;
             this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);
         }
     }
 }

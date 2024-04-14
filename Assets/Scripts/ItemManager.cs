@@ -93,11 +93,6 @@ public class ItemManager : MonoBehaviour
 
 
 
-
-
-
-
-
         //use debugger to print out names of objects
         /*
         debug = new Dictionary<GameObject, string>();
@@ -131,19 +126,15 @@ public class ItemManager : MonoBehaviour
         //spawn in object
         if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
         {
-            //Instantiate(inventory[currentItemNumber]);
-            Instantiate(objspear);
+            if (currentUses[currentItemNumber] > 0)
+            {
+                Instantiate(inventory[currentItemNumber]);
+                currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+            }
+
         }
        
         
-    }
-
-
-
-    private void spawnSpear() {
-
-        //GameObject spear = Instantiate(objspear, transform.position, Quaternion.identity);
-        //spear.GetComponent<SpearMovement>().targetPos = this.GetComponent<PlayerAiming>().target;
     }
 
 
