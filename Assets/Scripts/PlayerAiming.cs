@@ -9,8 +9,8 @@ public class PlayerAiming : MonoBehaviour
     //public variables
     public bool targetVisible;
     public int targetDisplacement = 5;
-    public int upDist = 2;
-    public int downDist = 1;
+    public float upDist = 2;
+    public float downDist = 1;
     public float heightBuffer = 0.5f;
     public GameObject targetObject;
 
