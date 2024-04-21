@@ -13,11 +13,11 @@ public class SpearMovement : MonoBehaviour
     public GameObject player;
     public float speed;
     public Vector3 targetPos;
+    public Vector3 direction;
 
 
     //private variables
     Vector3 playerPos;
-    Vector3 direction;
     bool isStuck;
     Rigidbody2D rb;
 
@@ -27,11 +27,6 @@ public class SpearMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("player");
         Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
         rb = this.GetComponent<Rigidbody2D>();
-        playerPos = player.transform.position;
-
-        this.transform.position = new Vector3(playerPos.x, playerPos.y, playerPos.z);
-        targetPos = player.GetComponent<PlayerAiming>().targetObject.transform.position;
-        direction = Vector3.Normalize(targetPos - transform.position);
 
         if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x)) { 
             transform.eulerAngles = new Vector3(0, 0, 90);
