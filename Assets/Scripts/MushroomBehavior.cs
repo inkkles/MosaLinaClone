@@ -15,31 +15,24 @@ public class MushroomBehavior : MonoBehaviour
     bool isSmall;
     float growAmount;
     float startingForce;
-    BoxCollider2D bx;
     GameObject player;
 
     Vector3 mushroomStartScale;
-    Vector3 capStartScale;
 
 
     void Start()
     {
         startingForce = 5;
         mushroomStartScale = transform.localScale;
-        capStartScale = cap.transform.localScale;
 
 
         //ignore player collision when spawning
         player = GameObject.FindGameObjectWithTag("player");
         Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
-        Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), cap.gameObject.GetComponent<PolygonCollider2D>());
-        bx = GetComponent<BoxCollider2D>();
+        Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<PolygonCollider2D>());
 
         //scale box down
-        //transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        //cap.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         transform.localScale = mushroomStartScale * 0.5f;
-        cap.transform.localScale = capStartScale * 0.5f;
 
 
         //add initial force
@@ -57,11 +50,10 @@ public class MushroomBehavior : MonoBehaviour
         //scale box up
         if (grow)
         {
-            growAmount += 0.25f;
+            growAmount += 0.125f;
 
             transform.localScale = new Vector3(mushroomStartScale.x + growAmount, mushroomStartScale.y + growAmount, mushroomStartScale.z + growAmount);
-            cap.transform.localScale = new Vector3(capStartScale.x + growAmount, capStartScale.y + growAmount, capStartScale.z + growAmount);
-            if (growAmount >= 0.5f) grow = false;
+            if (growAmount >= 0.25f) grow = false;
         }
     }
 
@@ -73,7 +65,8 @@ public class MushroomBehavior : MonoBehaviour
             grow = true;
             isSmall = false;
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);
-            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), cap.GetComponent<PolygonCollider2D>(), false);
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<PolygonCollider2D>(), false);
+
         }
     }
 }

@@ -14,7 +14,7 @@ public class ItemManager : MonoBehaviour
     public GameObject objphaser;
     public GameObject objbutterfly;
     public GameObject objcamera;
-    public GameObject objbouncer;
+    public GameObject objmushroom;
     public GameObject objbox;
 
     public bool isPlaytest;
@@ -44,7 +44,7 @@ public class ItemManager : MonoBehaviour
         uses.Add("phaser", 1);
         uses.Add("butterfly", 2);
         uses.Add("camera", 1);
-        uses.Add("bouncer", 2);
+        uses.Add("mushroom", 2);
         uses.Add("box", 6);
 
         currentItemNumber = 0;
@@ -64,7 +64,8 @@ public class ItemManager : MonoBehaviour
             currentUses[0] = 4;
             inventory[1] = "box";
             currentUses[1] = 6;
-            currentUses[2] = 0;
+            inventory[2] = "mushroom";
+            currentUses[2] = 2;
 
         }
         else
@@ -77,7 +78,7 @@ public class ItemManager : MonoBehaviour
             totalObjects.Add("phaser");
             totalObjects.Add("butterfly");
             totalObjects.Add("camera");
-            totalObjects.Add("bouncer");
+            totalObjects.Add("mushroom");
             totalObjects.Add("box");
 
             currentItemNumber = 0;
@@ -108,8 +109,11 @@ public class ItemManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             currentItemNumber++;
-            if (currentUses[currentItemNumber] == 0) currentItemNumber++;
             if (currentItemNumber >= 3) currentItemNumber = 0;
+            if (currentUses[currentItemNumber] == 0) currentItemNumber++;
+            
+
+            Debug.Log(inventory[currentItemNumber]);
 
         }
 
@@ -130,6 +134,11 @@ public class ItemManager : MonoBehaviour
                 }
                 if (inventory[currentItemNumber] == "box") { 
                     spawnBox();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
+                if (inventory[currentItemNumber] == "mushroom")
+                {
+                    spawnMushroom();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
                 if (inventory[currentItemNumber] == "gravboots")
@@ -161,6 +170,12 @@ public class ItemManager : MonoBehaviour
     {
         GameObject spear = Instantiate(objspear, this.transform.position, Quaternion.identity);
         spear.GetComponent<SpearMovement>().direction = direction;
+    }
+
+    private void spawnMushroom()
+    {
+        GameObject mushroom = Instantiate(objmushroom, this.transform.position, Quaternion.identity);
+        mushroom.GetComponent<MushroomBehavior>().direction = direction;
     }
 
     private void spawnGravBoots()
