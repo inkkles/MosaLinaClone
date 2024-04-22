@@ -214,7 +214,7 @@ MonoBehaviour:
   objbutterfly: {fileID: 0}
   objcamera: {fileID: 0}
   objbouncer: {fileID: 0}
-  objbox: {fileID: 0}
+  objbox: {fileID: 5112741655261032019, guid: 05c9ab2c6e220d549bdcf5eab03e37be, type: 3}
   isPlaytest: 1
 --- !u!70 &54296444166658534
 CapsuleCollider2D:
