@@ -24,55 +24,66 @@ public class ItemManager : MonoBehaviour
 
     //private variables
     int currentItemNumber; //current selcted "item number"
-    Dictionary<GameObject, int> uses; //tracks all uses
-    List<GameObject> totalObjects = new List<GameObject>(); //tracks all objects
-    Dictionary<GameObject, string> debug;
+    Dictionary<string, int> uses; //tracks all uses
+    List<string> totalObjects = new List<string>(); //tracks all objects
+    //Dictionary<GameObject, string> debug;
+    Vector3 direction;
 
 
     int[] currentUses; //tracks current uses of current inventory
-    GameObject[] inventory; //tracks contents of the inventory
+    string[] inventory; //tracks contents of the inventory
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        uses = new Dictionary<GameObject, int>();
-        uses.Add(objgravboots, 2);
-        uses.Add(objspear, 4);
-        uses.Add(objdelete, 3);
-        uses.Add(objphaser, 1);
-        uses.Add(objbutterfly, 2);
-        uses.Add(objcamera, 1);
-        uses.Add(objbouncer, 2);
-        uses.Add(objbox, 6);
-        */
+
+        uses = new Dictionary<string, int>();
+        uses.Add("gravboots", 2);
+        uses.Add("spear", 4);
+        uses.Add("delete", 3);
+        uses.Add("phaser", 1);
+        uses.Add("butterfly", 2);
+        uses.Add("camera", 1);
+        uses.Add("bouncer", 2);
+        uses.Add("box", 6);
+
         currentItemNumber = 0;
 
         currentUses = new int[3];
-        inventory = new GameObject[3];
+        inventory = new string[3];
+
+
+
+
 
         //testing for monday
-        if(isPlaytest)
+
+        if (isPlaytest)
         {
-            inventory[0] = objspear;
+            inventory[0] = "spear";
             currentUses[0] = 4;
-        } else
+            inventory[1] = "box";
+            currentUses[1] = 6;
+            currentUses[2] = 0;
+
+        }
+        else
         {
             //use once all objects are implemented
 
-            totalObjects.Add(objgravboots);
-            totalObjects.Add(objspear);
-            totalObjects.Add(objdelete);
-            totalObjects.Add(objphaser);
-            totalObjects.Add(objbutterfly);
-            totalObjects.Add(objcamera);
-            totalObjects.Add(objbouncer);
-            totalObjects.Add(objbox);
+            totalObjects.Add("gravboots");
+            totalObjects.Add("spear");
+            totalObjects.Add("objdelete");
+            totalObjects.Add("phaser");
+            totalObjects.Add("butterfly");
+            totalObjects.Add("camera");
+            totalObjects.Add("bouncer");
+            totalObjects.Add("box");
 
             currentItemNumber = 0;
 
             currentUses = new int[3];
-            inventory = new GameObject[3];
+            inventory = new string[3];
 
             for (int i = 0; i < 3; i++)
             {
@@ -86,52 +97,75 @@ public class ItemManager : MonoBehaviour
 
         }
 
-
-
-        //use debugger to print out names of objects
-        /*
-        debug = new Dictionary<GameObject, string>();
-        debug.Add(objgravboots, "gravboots");
-        debug.Add(objspear, "spear");
-        debug.Add(objdelete, "delete");
-        debug.Add(objphaser, "phaser");
-        debug.Add(objbutterfly, "butterfly");
-        debug.Add(objcamera, "camera");
-        debug.Add(objbouncer, "bouncer");
-        debug.Add(objbox, "box");
-
-
-        Debug.Log(debug[inventory[0]] + ", " + debug[inventory[1]] + " " + debug[inventory[2]]);
-        */
+        //Debug.Log(inventory[0] + ", " + inventory[1] + " " + inventory[2]);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //switch held object
-        /*
         if (Input.GetKeyDown(KeyCode.C))
         {
             currentItemNumber++;
             if (currentUses[currentItemNumber] == 0) currentItemNumber++;
-            if (currentItemNumber <= 3) currentItemNumber = 0;
-        }
-        */
-        
-        //spawn in object
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
-        {
-            if (currentUses[currentItemNumber] > 0)
-            {
-                GameObject projectile = Instantiate(inventory[currentItemNumber]);
-                currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
-            }
+            if (currentItemNumber >= 3) currentItemNumber = 0;
 
         }
-       
-        
+
+
+        //direction variable calculates vector from player to target, is needed in multiple spawn events
+        direction = Vector3.Normalize(this.gameObject.GetComponent<PlayerAiming>().targetObject.transform.position - this.transform.position);
+
+        //spawn in object
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
+        {
+
+            if (currentUses[currentItemNumber] > 0)
+            {
+                if (inventory[currentItemNumber] == "spear")
+                {
+                    spawnSpear();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
+                if (inventory[currentItemNumber] == "box") { 
+                    spawnBox();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
+                if (inventory[currentItemNumber] == "gravboots")
+                {
+                    //CHECK IF GROUNDED ON GRAV BOOTS
+                    spawnGravBoots();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
+
+                //THIS SHOULD ONLY RUN IF THE ITEM SUCCESSFULLY SPAWNS
+                //currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+            }
+
+
+        }
+
+
     }
 
 
+
+    private void spawnBox()
+    {
+        GameObject box = Instantiate(objbox, this.transform.position, Quaternion.identity);
+        box.GetComponent<BoxBehavior>().direction = direction;
+    }
+
+    private void spawnSpear()
+    {
+        GameObject spear = Instantiate(objspear, this.transform.position, Quaternion.identity);
+        spear.GetComponent<SpearMovement>().direction = direction;
+    }
+
+    private void spawnGravBoots()
+    {
+
+    }
 
 }
