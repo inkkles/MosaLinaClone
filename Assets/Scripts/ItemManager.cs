@@ -180,7 +180,7 @@ public class ItemManager : MonoBehaviour
 
     private void spawnGravBoots()
     {
-
+        GameObject gravBoots = Instantiate(objgravboots, this.transform.position, Quaternion.identity);
     }
 
 }
