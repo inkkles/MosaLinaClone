@@ -17,7 +17,7 @@ public class ItemManager : MonoBehaviour
     public GameObject objmushroom;
     public GameObject objbox;
 
-    public bool isPlaytest;
+    public bool debug;
 
 
 
@@ -47,41 +47,24 @@ public class ItemManager : MonoBehaviour
         uses.Add("mushroom", 2);
         uses.Add("box", 6);
 
+      
+        //use once all objects are implemented
+
+        totalObjects.Add("gravboots");
+        totalObjects.Add("spear");
+        totalObjects.Add("mushroom");
+        totalObjects.Add("box");
+
+        /*
+        totalObjects.Add("objdelete");
+        totalObjects.Add("phaser");
+        totalObjects.Add("butterfly");
+        totalObjects.Add("camera");
+
+
+         */
+
         currentItemNumber = 0;
-
-        currentUses = new int[3];
-        inventory = new string[3];
-
-
-
-
-
-        //testing for monday
-
-        if (isPlaytest)
-        {
-            inventory[0] = "spear";
-            currentUses[0] = 4;
-            inventory[1] = "box";
-            currentUses[1] = 6;
-            inventory[2] = "mushroom";
-            currentUses[2] = 2;
-
-        }
-        else
-        {
-            //use once all objects are implemented
-
-            totalObjects.Add("gravboots");
-            totalObjects.Add("spear");
-            totalObjects.Add("objdelete");
-            totalObjects.Add("phaser");
-            totalObjects.Add("butterfly");
-            totalObjects.Add("camera");
-            totalObjects.Add("mushroom");
-            totalObjects.Add("box");
-
-            currentItemNumber = 0;
 
             currentUses = new int[3];
             inventory = new string[3];
@@ -96,9 +79,9 @@ public class ItemManager : MonoBehaviour
 
             }
 
-        }
 
-        //Debug.Log(inventory[0] + ", " + inventory[1] + " " + inventory[2]);
+
+        if(debug) Debug.Log(inventory[0] + ", " + inventory[1] + " " + inventory[2]);
     }
 
     // Update is called once per frame
