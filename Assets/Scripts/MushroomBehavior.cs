@@ -28,11 +28,11 @@ public class MushroomBehavior : MonoBehaviour
 
         //ignore player collision when spawning
         player = GameObject.FindGameObjectWithTag("player");
-        Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
-        Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<PolygonCollider2D>());
+        //Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
+        Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponentInParent<BoxCollider2D>());
 
         //scale box down
-        transform.localScale = mushroomStartScale * 0.5f;
+        //transform.localScale = mushroomStartScale * 0.5f;
 
 
         //add initial force
@@ -52,21 +52,48 @@ public class MushroomBehavior : MonoBehaviour
         {
             growAmount += 0.125f;
 
-            transform.localScale = new Vector3(mushroomStartScale.x + growAmount, mushroomStartScale.y + growAmount, mushroomStartScale.z + growAmount);
-            if (growAmount >= 0.25f) grow = false;
+            transform.localScale = new Vector3(mushroomStartScale.x + growAmount, mushroomStartScale.y + growAmount, 0);
+            if (growAmount >= 0.25f)
+            {
+                grow = false;
+                growAmount = 0;
+            }
         }
+        //else if(transform.localScale.x > mushroomStartScale.x)
+        //{
+        //    growAmount += 0.125f;
+        //    transform.localScale = new Vector3(mushroomStartScale.x - growAmount, mushroomStartScale.y - growAmount, 0);
+        //    if (transform.localScale.x <= mushroomStartScale.x)
+        //    {
+        //        transform.localScale = mushroomStartScale;
+        //        growAmount = 0;
+        //        isSmall = true;
+        //    }
+        //}
+
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isSmall && !collision.gameObject.CompareTag("player"))
+        if (!collision.gameObject.CompareTag("player"))
         {
-            grow = true;
-            isSmall = false;
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);
-            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<PolygonCollider2D>(), false);
-
+            Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponentInParent<BoxCollider2D>(), false);
+            if(isSmall)
+            {
+                grow = true;
+                isSmall = false;
+            }
         }
+        //if (isSmall && !collision.gameObject.CompareTag("player"))
+        ////if(isSmall)
+        //{
+        //    grow = true;
+        //    isSmall = false;
+        //    Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);
+        //    Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponentInParent<BoxCollider2D>(), false);
+
+        //}
     }
 }

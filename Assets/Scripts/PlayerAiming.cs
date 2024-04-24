@@ -38,6 +38,7 @@ public class PlayerAiming : MonoBehaviour
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
 
             target = new Vector3(this.transform.position.x + (upDist * transform.localScale.x), this.transform.position.y + (targetDisplacement), -1);
+            Physics2D.gravity = Vector2.up * 9.8f;
         } else
         {
             target = new Vector3(this.transform.position.x + (targetDisplacement * transform.localScale.x), this.transform.position.y + heightBuffer, -1);
