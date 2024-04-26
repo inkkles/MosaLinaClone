@@ -32,9 +32,9 @@ public class SpearMovement : MonoBehaviour
 
             //instead of :
             Debug.Log("SPIN");
-            transform.rotation = Quaternion.Euler(0, 0, 90);
+            //this.transform.Rotate(Vector3.forward * 90);
 
-            //if (direction.y < 0) this.GetComponent<SpriteRenderer>().flipY = true;
+            if (direction.y < 0) this.GetComponent<SpriteRenderer>().flipY = true;
 
         } else
         {
