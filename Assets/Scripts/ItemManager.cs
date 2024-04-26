@@ -54,10 +54,10 @@ public class ItemManager : MonoBehaviour
         totalObjects.Add("spear");
         totalObjects.Add("mushroom");
         totalObjects.Add("box");
+        totalObjects.Add("phaser");
 
         /*
         totalObjects.Add("objdelete");
-        totalObjects.Add("phaser");
         totalObjects.Add("butterfly");
         totalObjects.Add("camera");
 
@@ -130,6 +130,11 @@ public class ItemManager : MonoBehaviour
                     spawnGravBoots();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
+                if (inventory[currentItemNumber] == "phaser")
+                {
+                    spawnPhaser();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
 
                 //THIS SHOULD ONLY RUN IF THE ITEM SUCCESSFULLY SPAWNS
                 //currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
@@ -164,6 +169,12 @@ public class ItemManager : MonoBehaviour
     private void spawnGravBoots()
     {
         GameObject gravBoots = Instantiate(objgravboots, this.transform.position, Quaternion.identity);
+    }
+
+    private void spawnPhaser()
+    {
+        GameObject phaser = Instantiate(objphaser, this.transform.position, Quaternion.identity);
+        phaser.GetComponent<PhaserBehavior>().direction = direction;
     }
 
 }
