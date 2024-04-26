@@ -7,6 +7,7 @@ public class PhaserBehavior : MonoBehaviour
     //public variables
     public Vector3 direction;
     public float speed;
+    public Sprite phaserFullSprite;
 
     //private variables
     GameObject player;
@@ -31,6 +32,7 @@ public class PhaserBehavior : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!isStopped) isStopped = true;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = phaserFullSprite;
         Invoke("DestroyAndTeleport", 0.5f);
     }
 

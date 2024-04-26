@@ -50,9 +50,9 @@ public class ItemManager : MonoBehaviour
       
         //use once all objects are implemented
 
-        //totalObjects.Add("gravboots");
+        totalObjects.Add("gravboots");
         totalObjects.Add("spear");
-        //totalObjects.Add("mushroom");
+        totalObjects.Add("mushroom");
         totalObjects.Add("box");
         totalObjects.Add("phaser");
 
