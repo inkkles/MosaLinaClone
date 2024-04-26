@@ -169,6 +169,7 @@ public class ItemManager : MonoBehaviour
     private void spawnGravBoots()
     {
         GameObject gravBoots = Instantiate(objgravboots, this.transform.position, Quaternion.identity);
+        gravBoots.GetComponent<GravBootsBehavior>().direction = direction;
     }
 
     private void spawnPhaser()
