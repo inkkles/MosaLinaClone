@@ -6,7 +6,7 @@ public class LegacyMushroomBehavior : MonoBehaviour
 {
     //public variables
     public Vector3 direction;
-    public GameObject cap;
+    //public GameObject cap;
 
 
     //private variables
