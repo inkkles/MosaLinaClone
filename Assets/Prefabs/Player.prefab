@@ -210,7 +210,7 @@ MonoBehaviour:
   objgravboots: {fileID: 3489971611791808521, guid: 86157cc3fe68ef644966db5fd8a725b6, type: 3}
   objspear: {fileID: 6478188849354533219, guid: 660f76e479f33a14e883782b66303662, type: 3}
   objdelete: {fileID: 0}
-  objphaser: {fileID: 0}
+  objphaser: {fileID: 6246592800970222451, guid: 8785d6d6eb2194045b4950b92e4a3600, type: 3}
   objbutterfly: {fileID: 0}
   objcamera: {fileID: 0}
   objmushroom: {fileID: 2990829871086186117, guid: d7ded3e1fbb443a45b52f76798f4c7ea, type: 3}
