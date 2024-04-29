@@ -6,6 +6,12 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // sprites 
+    public SpriteRenderer spriteLeft;
+    public SpriteRenderer spriteRight;
+    public SpriteRenderer downLeft; 
+    public SpriteRenderer downRight; 
+
     //inputs
     bool right;
     bool left;
