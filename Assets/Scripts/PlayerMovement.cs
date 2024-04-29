@@ -7,10 +7,8 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     // sprites 
-    public SpriteRenderer spriteLeft;
-    public SpriteRenderer spriteRight;
-    public SpriteRenderer downLeft; 
-    public SpriteRenderer downRight; 
+    public Animator animator;
+
 
     //inputs
     bool right;
@@ -55,14 +53,16 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalMove -= 1;
             scale = transform.localScale;
-            scale.x = -1f;
+            //scale.x = -1f;
+            scale.x = -1.5f;
             transform.localScale = scale;
         }
         if (Input.GetKey(KeyCode.D))
         {
             horizontalMove += 1;
             scale = transform.localScale;
-            scale.x = 1f;
+            //scale.x = 1f;
+            scale.x = 1.5f;
             transform.localScale = scale;
         }
 
@@ -71,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
         {
             //grounded movement is dragless
             this.transform.position += new Vector3(horizontalMove * playerSpeed * Time.deltaTime, 0, 0);
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove * playerSpeed * Time.deltaTime));
+            //Debug.Log(horizontalMove * playerSpeed * Time.deltaTime);
             if (jump) Jump();
         }
         else
