@@ -35,6 +35,30 @@ public class GravBootsBehavior : MonoBehaviour
         targetPos = player.GetComponent<PlayerAiming>().targetObject.transform.position;
 
 
+        if(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
+        {
+            if (direction.y > 0)
+            {
+                gravDir = GravityDirection.Up;
+            }
+            else
+            {
+                gravDir = GravityDirection.Down;
+            }
+        } else
+        {
+            if (direction.x > 0)
+            {
+                gravDir = GravityDirection.Right;
+            }
+            else
+            {
+                gravDir = GravityDirection.Left;
+            }
+        }
+
+
+        /*
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             gravDir = GravityDirection.Down;
@@ -55,6 +79,7 @@ public class GravBootsBehavior : MonoBehaviour
                 gravDir = GravityDirection.Left;
             }
         }
+        */
 
     }
 

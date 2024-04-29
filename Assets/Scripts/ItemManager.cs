@@ -156,7 +156,15 @@ public class ItemManager : MonoBehaviour
 
     private void spawnSpear()
     {
-        GameObject spear = Instantiate(objspear, this.transform.position, Quaternion.identity);
+        GameObject spear;
+        if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
+        {
+            spear = Instantiate(objspear, this.transform.position, Quaternion.Euler(0, 0, 90));
+        } else
+        {
+            spear = Instantiate(objspear, this.transform.position, Quaternion.identity);
+        }
+            
         spear.GetComponent<SpearMovement>().direction = direction;
     }
 
@@ -169,6 +177,7 @@ public class ItemManager : MonoBehaviour
     private void spawnGravBoots()
     {
         GameObject gravBoots = Instantiate(objgravboots, this.transform.position, Quaternion.identity);
+        gravBoots.GetComponent<GravBootsBehavior>().direction = direction;
     }
 
     private void spawnPhaser()

@@ -30,9 +30,11 @@ public class SpearMovement : MonoBehaviour
 
         if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x)) {
 
-            transform.eulerAngles = new Vector3(0, 0, 90);
+            //instead of :
+            Debug.Log("SPIN");
+            //this.transform.Rotate(Vector3.forward * 90);
 
-            if(direction.y < 0) this.GetComponent<SpriteRenderer>().flipY = true;
+            if (direction.y < 0) this.GetComponent<SpriteRenderer>().flipY = true;
 
         } else
         {
