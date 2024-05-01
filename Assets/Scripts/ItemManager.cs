@@ -55,10 +55,11 @@ public class ItemManager : MonoBehaviour
         totalObjects.Add("mushroom");
         totalObjects.Add("box");
         totalObjects.Add("phaser");
+        totalObjects.Add("butterfly");
 
         /*
         totalObjects.Add("objdelete");
-        totalObjects.Add("butterfly");
+        
         totalObjects.Add("camera");
 
 
@@ -112,27 +113,32 @@ public class ItemManager : MonoBehaviour
             {
                 if (inventory[currentItemNumber] == "spear")
                 {
-                    spawnSpear();
+                    SpawnSpear();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
                 if (inventory[currentItemNumber] == "box") { 
-                    spawnBox();
+                    SpawnBox();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
                 if (inventory[currentItemNumber] == "mushroom")
                 {
-                    spawnMushroom();
+                    SpawnMushroom();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
                 if (inventory[currentItemNumber] == "gravboots")
                 {
                     //CHECK IF GROUNDED ON GRAV BOOTS
-                    spawnGravBoots();
+                    SpawnGravBoots();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
                 if (inventory[currentItemNumber] == "phaser")
                 {
-                    spawnPhaser();
+                    SpawnPhaser();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
+                if (inventory[currentItemNumber] == "butterfly")
+                {
+                    SpawnButterfly();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
 
@@ -148,13 +154,13 @@ public class ItemManager : MonoBehaviour
 
 
 
-    private void spawnBox()
+    private void SpawnBox()
     {
         GameObject box = Instantiate(objbox, this.transform.position, Quaternion.identity);
         box.GetComponent<BoxBehavior>().direction = direction;
     }
 
-    private void spawnSpear()
+    private void SpawnSpear()
     {
         GameObject spear;
         if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
@@ -168,22 +174,29 @@ public class ItemManager : MonoBehaviour
         spear.GetComponent<SpearMovement>().direction = direction;
     }
 
-    private void spawnMushroom()
+    private void SpawnMushroom()
     {
         GameObject mushroom = Instantiate(objmushroom, this.transform.position, Quaternion.identity);
         mushroom.GetComponent<MushroomBehavior>().direction = direction;
     }
 
-    private void spawnGravBoots()
+    private void SpawnGravBoots()
     {
         GameObject gravBoots = Instantiate(objgravboots, this.transform.position, Quaternion.identity);
         gravBoots.GetComponent<GravBootsBehavior>().direction = direction;
     }
 
-    private void spawnPhaser()
+    private void SpawnPhaser()
     {
         GameObject phaser = Instantiate(objphaser, this.transform.position, Quaternion.identity);
         phaser.GetComponent<PhaserBehavior>().direction = direction;
+    }
+
+    private void SpawnButterfly()
+    {
+        GameObject butterfly = Instantiate(objbutterfly, this.transform.position, Quaternion.identity);
+        butterfly.GetComponent<ButterflyBehavior>().direction = direction;
+        this.transform.position = this.gameObject.GetComponent<PlayerAiming>().targetObject.transform.position;
     }
 
 }
