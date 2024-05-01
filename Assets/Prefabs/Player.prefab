@@ -12,12 +12,14 @@ GameObject:
   - component: {fileID: 4847982348286241480}
   - component: {fileID: 193661951333950791}
   - component: {fileID: 4542204114473581264}
+  - component: {fileID: 793164503915374746}
+  - component: {fileID: -7380236688976467896}
   - component: {fileID: 1586756780221492152}
   - component: {fileID: 54296444166658534}
   - component: {fileID: 7211564644855903648}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,6 +163,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &793164503915374746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749494184600913375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14885ec59d358a4ebc3269dcb7520f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objgravboots: {fileID: 3489971611791808521, guid: 86157cc3fe68ef644966db5fd8a725b6, type: 3}
+  objspear: {fileID: 6478188849354533219, guid: 660f76e479f33a14e883782b66303662, type: 3}
+  objdelete: {fileID: 0}
+  objphaser: {fileID: 6246592800970222451, guid: 8785d6d6eb2194045b4950b92e4a3600, type: 3}
+  objbutterfly: {fileID: 0}
+  objcamera: {fileID: 0}
+  objmushroom: {fileID: 2990829871086186117, guid: d7ded3e1fbb443a45b52f76798f4c7ea, type: 3}
+  objbox: {fileID: 5112741655261032019, guid: 05c9ab2c6e220d549bdcf5eab03e37be, type: 3}
+  debug: 0
+--- !u!114 &-7380236688976467896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749494184600913375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ffbad4e245ba345b413d16733cf2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetVisible: 0
+  targetDisplacement: 5
+  upDist: 2
+  downDist: 1
+  heightBuffer: 0.5
+  targetObject: {fileID: 0}
 --- !u!114 &1586756780221492152
 MonoBehaviour:
   m_ObjectHideFlags: 0
