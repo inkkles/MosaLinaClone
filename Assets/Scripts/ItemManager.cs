@@ -57,13 +57,13 @@ public class ItemManager : MonoBehaviour
         totalObjects.Add("phaser");
         totalObjects.Add("butterfly");
 
-        /*
-        totalObjects.Add("objdelete");
         
-        totalObjects.Add("camera");
+        totalObjects.Add("delete");
+        
+        //totalObjects.Add("camera");
 
 
-         */
+         
 
         currentItemNumber = 0;
 
@@ -82,7 +82,7 @@ public class ItemManager : MonoBehaviour
 
 
 
-        if(debug) Debug.Log(inventory[0] + ", " + inventory[1] + " " + inventory[2]);
+        Debug.Log(inventory[0] + ", " + inventory[1] + " " + inventory[2]);
     }
 
     // Update is called once per frame
@@ -141,6 +141,11 @@ public class ItemManager : MonoBehaviour
                     SpawnButterfly();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
+                if (inventory[currentItemNumber] == "delete")
+                {
+                    SpawnDelete();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
 
                 //THIS SHOULD ONLY RUN IF THE ITEM SUCCESSFULLY SPAWNS
                 //currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
@@ -197,6 +202,11 @@ public class ItemManager : MonoBehaviour
         GameObject butterfly = Instantiate(objbutterfly, this.transform.position, Quaternion.identity);
         butterfly.GetComponent<ButterflyBehavior>().direction = direction;
         this.transform.position = this.gameObject.GetComponent<PlayerAiming>().targetObject.transform.position;
+    }
+
+    private void SpawnDelete()
+    {
+        GameObject delete = Instantiate(objdelete, this.gameObject.GetComponent<PlayerAiming>().targetObject.transform.position, Quaternion.identity);
     }
 
 }
