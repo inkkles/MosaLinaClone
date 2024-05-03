@@ -177,9 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objgravboots: {fileID: 3489971611791808521, guid: 86157cc3fe68ef644966db5fd8a725b6, type: 3}
   objspear: {fileID: 6478188849354533219, guid: 660f76e479f33a14e883782b66303662, type: 3}
-  objdelete: {fileID: 0}
+  objdelete: {fileID: 7890496856912555354, guid: 5035d6dd38367dc46b99139315fa6067, type: 3}
   objphaser: {fileID: 6246592800970222451, guid: 8785d6d6eb2194045b4950b92e4a3600, type: 3}
-  objbutterfly: {fileID: 0}
+  objbutterfly: {fileID: 997433031581659175, guid: 0ae9ac20a407dbb47923f719cd44411f, type: 3}
   objcamera: {fileID: 0}
   objmushroom: {fileID: 2990829871086186117, guid: d7ded3e1fbb443a45b52f76798f4c7ea, type: 3}
   objbox: {fileID: 5112741655261032019, guid: 05c9ab2c6e220d549bdcf5eab03e37be, type: 3}
