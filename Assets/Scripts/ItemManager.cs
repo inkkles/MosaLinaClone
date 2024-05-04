@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using JetBrains.Annotations;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
@@ -58,7 +59,7 @@ public class ItemManager : MonoBehaviour
         totalObjects.Add("butterfly");
 
         
-        totalObjects.Add("delete");
+        //totalObjects.Add("delete");
         
         //totalObjects.Add("camera");
 
@@ -85,6 +86,11 @@ public class ItemManager : MonoBehaviour
         Debug.Log(inventory[0] + ", " + inventory[1] + " " + inventory[2]);
     }
 
+    public string GetItem()
+    {
+        return inventory[currentItemNumber];
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -94,7 +100,7 @@ public class ItemManager : MonoBehaviour
         {
             currentItemNumber++;
             if (currentItemNumber >= 3) currentItemNumber = 0;
-            if (currentUses[currentItemNumber] == 0) currentItemNumber++;
+            //if (currentUses[currentItemNumber] == 0) currentItemNumber++;
             
 
             Debug.Log(inventory[currentItemNumber]);
