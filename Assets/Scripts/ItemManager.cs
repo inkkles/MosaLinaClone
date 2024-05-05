@@ -14,7 +14,7 @@ public class ItemManager : MonoBehaviour
     public GameObject objdelete;
     public GameObject objphaser;
     public GameObject objbutterfly;
-    public GameObject objcamera;
+    public GameObject objinstabox;
     public GameObject objmushroom;
     public GameObject objbox;
 
@@ -44,24 +44,21 @@ public class ItemManager : MonoBehaviour
         uses.Add("delete", 3);
         uses.Add("phaser", 1);
         uses.Add("butterfly", 2);
-        uses.Add("camera", 1);
+        uses.Add("instabox", 2);
         uses.Add("mushroom", 2);
         uses.Add("box", 6);
 
       
         //use once all objects are implemented
-
+        
         totalObjects.Add("gravboots");
         totalObjects.Add("spear");
         totalObjects.Add("mushroom");
         totalObjects.Add("box");
         totalObjects.Add("phaser");
         totalObjects.Add("butterfly");
-
-        
-        //totalObjects.Add("delete");
-        
-        //totalObjects.Add("camera");
+        totalObjects.Add("delete");
+        totalObjects.Add("instabox");
 
 
          
@@ -152,6 +149,11 @@ public class ItemManager : MonoBehaviour
                     SpawnDelete();
                     currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
                 }
+                if (inventory[currentItemNumber] == "instabox")
+                {
+                    SpawnInstabox();
+                    currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
+                }
 
                 //THIS SHOULD ONLY RUN IF THE ITEM SUCCESSFULLY SPAWNS
                 //currentUses[currentItemNumber] = currentUses[currentItemNumber] - 1;
@@ -213,6 +215,11 @@ public class ItemManager : MonoBehaviour
     private void SpawnDelete()
     {
         GameObject delete = Instantiate(objdelete, this.gameObject.GetComponent<PlayerAiming>().targetObject.transform.position, Quaternion.identity);
+    }
+
+    private void SpawnInstabox()
+    {
+        GameObject instabox = Instantiate(objinstabox, this.gameObject.GetComponent<PlayerAiming>().targetObject.transform.position, Quaternion.identity);
     }
 
 }
