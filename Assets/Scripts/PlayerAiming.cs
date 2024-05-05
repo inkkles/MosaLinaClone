@@ -34,7 +34,7 @@ public class PlayerAiming : MonoBehaviour
         Debug.Log("Test GetItem method:" + currentItem);
 
         //list of items that show the target; if it is not these items, hide target sprite
-        if (currentItem != "delete" || currentItem != "camera" || currentItem != "butterfly")
+        if (currentItem != "delete" || currentItem != "camera" || currentItem != "butterfly" || currentItem != "instabox")
         {
             targetObject.GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -61,7 +61,7 @@ public class PlayerAiming : MonoBehaviour
             target = new Vector3(this.transform.position.x + (targetDisplacement * transform.localScale.x), this.transform.position.y + heightBuffer, -1);
         }
 
-        if(currentItem == "butterfly")
+        if(currentItem == "butterfly" || currentItem == "instabox")
         {
             target = GetTargetRaycastHitPosition();
         }
