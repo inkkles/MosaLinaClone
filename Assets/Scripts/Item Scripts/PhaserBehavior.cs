@@ -8,6 +8,7 @@ public class PhaserBehavior : MonoBehaviour
     public Vector3 direction;
     public float speed;
     public Sprite phaserFullSprite;
+    public AudioSource teleportAudio;
 
     //private variables
     GameObject player;
@@ -34,6 +35,7 @@ public class PhaserBehavior : MonoBehaviour
         if (!isStopped) isStopped = true;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = phaserFullSprite;
         Invoke("DestroyAndTeleport", 0.5f);
+        teleportAudio.Play();
     }
 
     public void DestroyAndTeleport()

@@ -25,7 +25,7 @@ public class ButterflyBehavior : MonoBehaviour
         Invoke("TeleportPlayer", 3.5f);
         Invoke("WhiteOut", 2f);
         Invoke("Revert", 2.25f);
-        Invoke("WhiteOut", 3);
+        Invoke("WhiteOut", 2.75f);
         
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-direction.x, direction.y) * startingForce, ForceMode2D.Impulse);
     }
