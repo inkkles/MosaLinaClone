@@ -8,18 +8,15 @@ public class ShadowCast : MonoBehaviour
     GameObject shadow;
     SpriteRenderer shadowSprite;
 
-    float xOffset;
-    float yOffset;
+    public float xOffset = 1;
+    public float yOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Game-wide shadow offsets
-        xOffset = -0.1f;
-        yOffset = -0.075f;
 
         //Spawn in game object with a transform component (redundent, transform components are mandatory)
-        shadow = new GameObject("Dropshadow", typeof(Transform));
+        shadow = new GameObject("Dropshadow");
         //Make the shadow a child of this object
         shadow.transform.parent = this.transform;
         //set the rotation of the shadow to the same rotation this object started as
@@ -41,6 +38,8 @@ public class ShadowCast : MonoBehaviour
     {
         //offset the shadow
         shadow.transform.position = this.transform.position + new Vector3(xOffset, yOffset, 1);
+        //update sprite (in case it changes)
+        shadowSprite.sprite = this.GetComponent<SpriteRenderer>().sprite;
 
     }
 }
