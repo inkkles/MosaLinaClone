@@ -17,30 +17,19 @@ public class PortalBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //RESET BUTTON
-        if(Input.GetKey(KeyCode.R))
+        if (fruitCounter == 2)
         {
-            //PUT X SPRITE HERE @ ALESHA
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            isUnlocked = true;
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
-
-        if (fruitCounter == 2) isUnlocked = true;
-
-
-        //CHECKS IF PLAYER FELL TO DEATH
-        //PUT X SPRITE HERE @ ALESHA
-        if(GameObject.FindGameObjectWithTag("player").transform.position.y < -5) SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
-
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("player") && isUnlocked)
         {
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            Debug.Log("Level beat");
+            GameObject.FindWithTag("Manager").GetComponent<LevelManager>().changeLevel();
         }
         
     }

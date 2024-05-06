@@ -18,6 +18,7 @@ public class ItemManager : MonoBehaviour
     public GameObject objmushroom;
     public GameObject objbox;
 
+    public bool tutorial;
     public bool debug;
 
 
@@ -69,15 +70,25 @@ public class ItemManager : MonoBehaviour
             currentUses = new int[3];
             inventory = new string[3];
 
+        if (tutorial) //tutorial item loadout is box, mushroom, spear (replacing ball)
+        {
+            inventory[0] = "box";
+            currentUses[0] = 6;
+            inventory[1] = "mushroom";
+            currentUses[1] = 2;
+            inventory[2] = "spear";
+            currentUses[2] = 4;
+        }
+        else
+        {
             for (int i = 0; i < 3; i++)
             {
                 int randNum = Random.Range(0, totalObjects.Count - 1);
                 inventory[i] = totalObjects[randNum];
                 currentUses[i] = uses[totalObjects[randNum]];
                 totalObjects.Remove(totalObjects[randNum]);
-
-
             }
+        }
 
 
 

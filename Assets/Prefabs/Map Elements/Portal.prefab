@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 185699644417240577}
   - component: {fileID: 6138194494533875767}
   - component: {fileID: 2278402377576368034}
+  - component: {fileID: 1478857717012722986}
   m_Layer: 0
   m_Name: Portal
   m_TagString: portal
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.91, y: -2.24, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.42052335, g: 0.509434, b: 0.4331511, a: 1}
+  m_Sprite: {fileID: 1979943006, guid: 22fd790580d9a184cabcfabca77a8f60, type: 3}
+  m_Color: {r: 0.37793696, g: 0.5377358, b: 0.44447592, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -135,7 +136,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.31
 --- !u!114 &2278402377576368034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +151,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: -0.1
   yOffset: -0.075
+--- !u!95 &1478857717012722986
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784101064262212468}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c2c892e5593fbc4cb6ebfe5f8ce5e28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

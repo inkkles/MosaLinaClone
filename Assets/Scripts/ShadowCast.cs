@@ -8,8 +8,8 @@ public class ShadowCast : MonoBehaviour
     GameObject shadow;
     SpriteRenderer shadowSprite;
 
-    public float xOffset = 1;
-    public float yOffset;
+    public float xOffset = -0.075f;
+    public float yOffset = -0.05f;
 
     // Start is called before the first frame update
     void Start()

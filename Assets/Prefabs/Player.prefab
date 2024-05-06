@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 793164503915374746}
   - component: {fileID: -7380236688976467896}
   - component: {fileID: 1586756780221492152}
+  - component: {fileID: 8387409903439800647}
   - component: {fileID: 54296444166658534}
   - component: {fileID: 7211564644855903648}
   m_Layer: 6
@@ -221,6 +222,18 @@ MonoBehaviour:
   animator: {fileID: 7211564644855903648}
   playerSpeed: 3
   jumpForce: 275
+--- !u!114 &8387409903439800647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749494184600913375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713ad7cad0c38be40b08e397bd94e36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!70 &54296444166658534
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
