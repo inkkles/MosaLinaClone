@@ -6,6 +6,8 @@ public class LegacyMushroomBehavior : MonoBehaviour
 {
     //public variables
     public Vector3 direction;
+    public AudioSource growAudio;
+    public AudioSource bounceAudio;
     //public GameObject cap;
 
 
@@ -61,11 +63,15 @@ public class LegacyMushroomBehavior : MonoBehaviour
     {
         if (isSmall && !collision.gameObject.CompareTag("player"))
         {
+            growAudio.Play();
             grow = true;
             isSmall = false;
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<PolygonCollider2D>(), false);
 
         }
+
+        //if(!isSmall) bounceAudio.Play();
+    
     }
 }

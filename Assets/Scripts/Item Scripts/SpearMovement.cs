@@ -15,6 +15,9 @@ public class SpearMovement : MonoBehaviour
     public Vector3 targetPos;
     public Vector3 direction;
 
+    public AudioSource shootAudio;
+    public AudioSource stickAudio;
+
 
     //private variables
     Vector3 playerPos;
@@ -27,6 +30,7 @@ public class SpearMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("player");
         Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
         rb = this.GetComponent<Rigidbody2D>();
+        shootAudio.Play();
 
         if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x)) {
 
@@ -54,6 +58,7 @@ public class SpearMovement : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("player") && !isStuck)
         {
+            stickAudio.Play();
             isStuck = true;
             //this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);

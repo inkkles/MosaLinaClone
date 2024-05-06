@@ -15,6 +15,7 @@ public class BoxBehavior : MonoBehaviour
     float growAmount;
     float startingForce;
     BoxCollider2D bx;
+    AudioSource aS;
     GameObject player;
 
 
@@ -28,6 +29,7 @@ public class BoxBehavior : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("player");
         Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
         bx = GetComponent<BoxCollider2D>();
+        aS = GetComponent<AudioSource>();
 
         //scale box down
         transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -53,7 +55,7 @@ public class BoxBehavior : MonoBehaviour
         if(grow)
         {
             growAmount += 0.25f;
-            
+            aS.Play();
             transform.localScale = new Vector3(0.5f + growAmount, 0.5f + growAmount, 0.5f + growAmount);
             if (growAmount >= 0.5f) grow = false;
         }

@@ -5,11 +5,13 @@ using UnityEngine;
 public class DeleteBehavior : MonoBehaviour
 {
     GameObject collidedObject;
+    AudioSource AudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroySelf", 0.5f);
+        AudioSource = GetComponent<AudioSource>();
+        Invoke("DestroySelf", 1f);
     }
 
     
@@ -25,6 +27,7 @@ public class DeleteBehavior : MonoBehaviour
     {
         Destroy(collidedObject);
         Destroy(this.gameObject);
+        //AudioSource.Play();
     }
 
   }
