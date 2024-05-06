@@ -15,6 +15,8 @@ public class PlayerAiming : MonoBehaviour
     public float heightBuffer = 0.5f;
     public GameObject targetObject;
 
+    public LayerMask layerMask;
+
     //private variables
     Vector3 target;
     int yFacing;
@@ -31,18 +33,18 @@ public class PlayerAiming : MonoBehaviour
     void Update()
     {
         string currentItem = GetComponent<ItemManager>().GetItem();
-        Debug.Log("Test GetItem method:" + currentItem);
+        //Debug.Log("Test GetItem method:" + currentItem);
 
         //list of items that show the target; if it is not these items, hide target sprite
-        if (currentItem != "delete" || currentItem != "camera" || currentItem != "butterfly" || currentItem != "instabox")
-        {
-            targetObject.GetComponent<SpriteRenderer>().enabled = false;
-        }
-        else
+        if (currentItem == "delete" || currentItem == "butterfly" || currentItem == "instabox")
         {
             targetObject.GetComponent<SpriteRenderer>().enabled = true;
         }
-        Debug.Log("Target Visible: " + targetObject.GetComponent<SpriteRenderer>().enabled);
+        else
+        {
+            targetObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        //Debug.Log("Target Visible: " + targetObject.GetComponent<SpriteRenderer>().enabled);
 
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
@@ -63,7 +65,14 @@ public class PlayerAiming : MonoBehaviour
 
         if(currentItem == "butterfly" || currentItem == "instabox")
         {
-            target = GetTargetRaycastHitPosition();
+
+            //target = GetTargetRaycastHitPosition();
+
+            RaycastHit2D hitPoint = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y), target - this.transform.position, Vector3.Distance(transform.position, target), layerMask);
+            if(hitPoint.collider != null)
+            {
+                target = hitPoint.point;
+            }
         }
         //Debug.Log(yFacing);
 
@@ -71,6 +80,11 @@ public class PlayerAiming : MonoBehaviour
 
         Debug.DrawLine(transform.position, target);
     }
+
+
+    
+
+
 
     private Vector3 GetTargetRaycastHitPosition()
     {

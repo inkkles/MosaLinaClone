@@ -59,6 +59,7 @@ public class ItemManager : MonoBehaviour
         totalObjects.Add("butterfly");
         totalObjects.Add("delete");
         totalObjects.Add("instabox");
+        
 
 
          
@@ -86,6 +87,11 @@ public class ItemManager : MonoBehaviour
     public string GetItem()
     {
         return inventory[currentItemNumber];
+    }
+
+    public int GetUses()
+    {
+        return uses[inventory[currentItemNumber]];
     }
 
     // Update is called once per frame
@@ -190,7 +196,7 @@ public class ItemManager : MonoBehaviour
     private void SpawnMushroom()
     {
         GameObject mushroom = Instantiate(objmushroom, this.transform.position, Quaternion.identity);
-        mushroom.GetComponent<MushroomBehavior>().direction = direction;
+        mushroom.GetComponent<LegacyMushroomBehavior>().direction = direction;
     }
 
     private void SpawnGravBoots()
