@@ -18,6 +18,8 @@ public class TallyMarkBehavior : MonoBehaviour
 
     private void Update()
     {
+        count = GameObject.FindWithTag("player").GetComponent<ItemManager>().GetUses();
+
         GetComponent<SpriteRenderer>().sprite = spriteArray[count];
         
         if(count == 0) GetComponent<SpriteRenderer>().color = Color.gray;

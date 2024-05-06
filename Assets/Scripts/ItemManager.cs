@@ -91,7 +91,7 @@ public class ItemManager : MonoBehaviour
 
     public int GetUses()
     {
-        return uses[inventory[currentItemNumber]];
+        return currentUses[currentItemNumber];
     }
 
     // Update is called once per frame
