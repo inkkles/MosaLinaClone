@@ -20,7 +20,7 @@ public class BoxBehavior : MonoBehaviour
 
     void Start()
     {
-        startingForce = 5;
+        startingForce = 3;
 
 
 
