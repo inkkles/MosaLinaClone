@@ -43,6 +43,9 @@ public class LevelManager : MonoBehaviour
     //Changes to a random level
     public void changeLevel()
     {
+        if(levelList.Count == 0)
+            changeLevel("FinalScene");
+        else
         changeLevel(levelList[Random.Range(0, levelList.Count)]);
     }
 

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Green12.unity
     guid: 73b423d652d381d46b8beb7c039b7870
+  - enabled: 1
+    path: Assets/Scenes/Levels/FinalScene.unity
+    guid: ac64fa726f2e1c64bb623541e4e0058f
   m_configObjects: {}

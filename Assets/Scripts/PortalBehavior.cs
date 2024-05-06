@@ -54,7 +54,7 @@ public class PortalBehavior : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         player.SetActive(false);
-        Instantiate(greenCheck, transform.position, Quaternion.identity);
+        Instantiate(greenCheck, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity);
         yield return new WaitForSeconds(1f);
         GameObject.FindWithTag("Manager").GetComponent<LevelManager>().completeLevel(SceneManager.GetActiveScene().name);
     }
