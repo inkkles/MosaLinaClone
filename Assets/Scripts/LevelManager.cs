@@ -32,9 +32,15 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         //shuffles a list of levels once the tutorial loads to be used for the rest of the game
-        levelList.Shuffle(); 
+        levelList.Shuffle();
+
+        foreach(string level in levelList)
+        {
+            Debug.Log("Levels:\n" + levelList.IndexOf(level) + ": " + level);
+        }
     }
 
+    //Changes to a random level
     public void changeLevel()
     {
         changeLevel(levelList[Random.Range(0, levelList.Count)]);
@@ -42,12 +48,11 @@ public class LevelManager : MonoBehaviour
 
     public void changeLevel(string level)
     {
-        completeLevel(level);
         SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
     public void completeLevel(string completed_level)
     {
-        levelList.Remove(completed_level);
+        if(levelList.Contains(completed_level)) levelList.Remove(completed_level);
         changeLevel();
     }
 }

@@ -32,6 +32,7 @@ public class PhaserBehavior : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("player")) return;
         if (!isStopped) isStopped = true;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = phaserFullSprite;
         Invoke("DestroyAndTeleport", 0.5f);

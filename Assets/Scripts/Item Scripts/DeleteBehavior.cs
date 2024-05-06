@@ -11,7 +11,7 @@ public class DeleteBehavior : MonoBehaviour
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
-        Invoke("DestroySelf", 1f);
+        Invoke("DestroySelf", 0.5f);
     }
 
     

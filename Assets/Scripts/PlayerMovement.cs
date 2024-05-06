@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     // sprites 
     public Animator animator;
 
+    //audio
+    public AudioSource jumpSound;
+    public AudioSource landSound;
+
 
     //inputs
     bool right;
@@ -32,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.gravity = new Vector2(0, -9.8f);
+
         right = false; left = false; jump = false;
         rb = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<BoxCollider2D>();
@@ -85,23 +91,31 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (isGroundedCollider) {
-            if(!isGrounded) Debug.Log("grounded");
+            //if(!isGrounded) Debug.Log("grounded");
             isGrounded = true;
             
             //TODO: Apply impulse force on object jumped off of (aka `collision`)
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isGroundedCollider)
+        {
+            landSound.Play();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (isGroundedCollider)
         {
-            Debug.Log("fell");
+            //Debug.Log("fell");
             isGrounded = false;
         }
     }
 
     private void Jump()
     {
+        jumpSound.Play();
         isGrounded = false;
         rb.AddForce(Vector2.up * jumpForce);
     }

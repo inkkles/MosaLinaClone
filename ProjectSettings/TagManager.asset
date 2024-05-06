@@ -8,6 +8,7 @@ TagManager:
   - portal
   - spike
   - Manager
+  - fruit
   layers:
   - Default
   - TransparentFX
