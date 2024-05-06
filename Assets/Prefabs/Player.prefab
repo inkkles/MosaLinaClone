@@ -181,8 +181,8 @@ MonoBehaviour:
   objdelete: {fileID: 7890496856912555354, guid: 5035d6dd38367dc46b99139315fa6067, type: 3}
   objphaser: {fileID: 6246592800970222451, guid: 8785d6d6eb2194045b4950b92e4a3600, type: 3}
   objbutterfly: {fileID: 997433031581659175, guid: 0ae9ac20a407dbb47923f719cd44411f, type: 3}
-  objcamera: {fileID: 0}
-  objmushroom: {fileID: 2990829871086186117, guid: d7ded3e1fbb443a45b52f76798f4c7ea, type: 3}
+  objinstabox: {fileID: 1015639608416725470, guid: 2e4bf32383fa9a340bb111ea5f62c3ab, type: 3}
+  objmushroom: {fileID: 918253619043258359, guid: d7ded3e1fbb443a45b52f76798f4c7ea, type: 3}
   objbox: {fileID: 5112741655261032019, guid: 05c9ab2c6e220d549bdcf5eab03e37be, type: 3}
   debug: 0
 --- !u!114 &-7380236688976467896
@@ -197,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ffbad4e245ba345b413d16733cf2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetVisible: 0
   targetDisplacement: 5
   upDist: 2
   downDist: 1
