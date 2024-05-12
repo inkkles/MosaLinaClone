@@ -62,7 +62,7 @@ public class SpearMovement : MonoBehaviour
             //this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);
             this.gameObject.GetComponent<FixedJoint2D>().connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
-            this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.25f;
+            //this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.25f;
         }
     }
 }

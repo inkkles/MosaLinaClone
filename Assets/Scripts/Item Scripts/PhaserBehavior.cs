@@ -13,6 +13,8 @@ public class PhaserBehavior : MonoBehaviour
     //private variables
     GameObject player;
     bool isStopped;
+    bool isInside;
+    bool waitingToTeleport;
 
 
 
@@ -21,12 +23,29 @@ public class PhaserBehavior : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("player");
         Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
+        Physics2D.IgnoreCollision(player.GetComponent<CapsuleCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>());
+        isInside = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!isStopped) transform.position += direction * speed * Time.deltaTime;
+
+
+        //Screen Wrapping
+
+        float xpos = transform.position.x;
+        float ypos = transform.position.y;
+        float zpos = transform.position.z;
+
+        if (xpos < -8) xpos = 8;
+        if (xpos > 8) xpos = -8;
+        if (ypos < -5) ypos = 5;
+        if (ypos > 5) ypos = -5;
+
+        transform.position = new Vector3(xpos, ypos, zpos);
+
     }
 
 
