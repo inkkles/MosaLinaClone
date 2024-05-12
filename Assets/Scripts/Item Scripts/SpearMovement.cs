@@ -13,6 +13,7 @@ public class SpearMovement : MonoBehaviour
     public float speed;
     public Vector3 targetPos;
     public Vector3 direction;
+    public float collisionForce;
 
     public AudioSource shootAudio;
     public AudioSource stickAudio;
@@ -62,7 +63,8 @@ public class SpearMovement : MonoBehaviour
             //this.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             Physics2D.IgnoreCollision(player.GetComponent<BoxCollider2D>(), this.gameObject.GetComponent<BoxCollider2D>(), false);
             this.gameObject.GetComponent<FixedJoint2D>().connectedBody = collision.gameObject.GetComponent<Rigidbody2D>();
-            //this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.25f;
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y) * collisionForce, ForceMode2D.Impulse);
+            this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.25f;
         }
     }
 }

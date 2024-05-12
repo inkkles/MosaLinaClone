@@ -8,7 +8,7 @@ public class PlayerAiming : MonoBehaviour
 {
 
     //public variables
-    public int targetDisplacement = 5;
+    public float targetDisplacement = 5;
     public float upDist = 2;
     public float downDist = 1;
     public float heightBuffer = 0.5f;

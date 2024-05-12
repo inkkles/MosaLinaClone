@@ -151,6 +151,7 @@ MonoBehaviour:
   speed: 10
   targetPos: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
+  collisionForce: 10
   shootAudio: {fileID: -587375368189606473}
   stickAudio: {fileID: 4982967456404728870}
 --- !u!50 &-8978119939770986559

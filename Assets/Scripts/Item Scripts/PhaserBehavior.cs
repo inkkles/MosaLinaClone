@@ -39,28 +39,45 @@ public class PhaserBehavior : MonoBehaviour
         float ypos = transform.position.y;
         float zpos = transform.position.z;
 
-        if (xpos < -8) xpos = 8;
-        if (xpos > 8) xpos = -8;
+        if (xpos < -9) xpos = 9;
+        if (xpos > 9) xpos = -9;
         if (ypos < -5) ypos = 5;
         if (ypos > 5) ypos = -5;
 
         transform.position = new Vector3(xpos, ypos, zpos);
 
+        if(waitingToTeleport && !isInside) GetReadyToTeleport();
+
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        waitingToTeleport = true;
+        isInside = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        isInside = true;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("player")) return;
-        if (!isStopped) isStopped = true;
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = phaserFullSprite;
-        Invoke("DestroyAndTeleport", 0.5f);
-        teleportAudio.Play();
+        isInside = false;
     }
 
     public void DestroyAndTeleport()
     {
         player.transform.position = this.transform.position;
         Destroy(this.gameObject);
+    }
+
+    private void GetReadyToTeleport()
+    {
+        //if (collision.CompareTag("player")) return;
+        if (!isStopped) isStopped = true;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = phaserFullSprite;
+        Invoke("DestroyAndTeleport", 0.5f);
+        teleportAudio.Play();
     }
 }
