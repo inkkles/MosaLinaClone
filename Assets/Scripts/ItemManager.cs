@@ -94,6 +94,12 @@ public class ItemManager : MonoBehaviour
         Debug.Log(inventory[0] + ", " + inventory[1] + " " + inventory[2]);
     }
 
+    public string[] GetInventory()
+    {
+        return inventory;
+    }
+
+
     public string GetItem()
     {
         return inventory[currentItemNumber];
