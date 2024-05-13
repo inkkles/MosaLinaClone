@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ffbad4e245ba345b413d16733cf2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 7211564644855903648}
   targetDisplacement: 5
   upDist: 2
   downDist: 1
@@ -211,7 +212,7 @@ MonoBehaviour:
   targetObject: {fileID: 8338761017202823353}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 27
 --- !u!114 &1586756780221492152
 MonoBehaviour:
   m_ObjectHideFlags: 0

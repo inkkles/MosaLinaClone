@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class PlayerAiming : MonoBehaviour
 {
+    // animator
+    public Animator animator;
 
     //public variables
     public int targetDisplacement = 5;
@@ -49,17 +51,19 @@ public class PlayerAiming : MonoBehaviour
         {
 
             target = new Vector3(this.transform.position.x + (downDist * transform.localScale.x), this.transform.position.y + (targetDisplacement * -1) + heightBuffer, -1);
+            animator.SetBool("Down", true);
 
         }
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
 
             target = new Vector3(this.transform.position.x + (upDist * transform.localScale.x), this.transform.position.y + (targetDisplacement), -1);
-
+            animator.SetBool("Down", false);
         }
         else
         {
             target = new Vector3(this.transform.position.x + (targetDisplacement * transform.localScale.x), this.transform.position.y + heightBuffer, -1);
+            animator.SetBool("Down", false);
         }
 
         if(currentItem == "butterfly" || currentItem == "instabox")
