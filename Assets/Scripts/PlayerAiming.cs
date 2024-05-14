@@ -52,6 +52,7 @@ public class PlayerAiming : MonoBehaviour
 
             target = new Vector3(this.transform.position.x + (downDist * transform.localScale.x), this.transform.position.y + (targetDisplacement * -1) + heightBuffer, -1);
             animator.SetBool("Down", true);
+            animator.SetBool("Up", false);
 
         }
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
@@ -59,11 +60,13 @@ public class PlayerAiming : MonoBehaviour
 
             target = new Vector3(this.transform.position.x + (upDist * transform.localScale.x), this.transform.position.y + (targetDisplacement), -1);
             animator.SetBool("Down", false);
+            animator.SetBool("Up", true);
         }
         else
         {
             target = new Vector3(this.transform.position.x + (targetDisplacement * transform.localScale.x), this.transform.position.y + heightBuffer, -1);
             animator.SetBool("Down", false);
+            animator.SetBool("Up", false);
         }
 
         if(currentItem == "butterfly" || currentItem == "instabox")
