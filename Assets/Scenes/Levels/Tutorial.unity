@@ -917,11 +917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1882041963273190084, guid: 36f509a806193bf46a1ee8c86f21282e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 1882041963273190084, guid: 36f509a806193bf46a1ee8c86f21282e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.74
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: 1882041963273190084, guid: 36f509a806193bf46a1ee8c86f21282e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   - Blue2
   - Blue3
   - Blue4
-  - BlueSalvage2
+  - BueSalvage2
   - Green2
   - Green3
   - Green12
@@ -1588,7 +1588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.5, y: 0}
+  m_AnchoredPosition: {x: 4.57, y: -0.04}
   m_SizeDelta: {x: 40.3439, y: 34.3933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1601086019
