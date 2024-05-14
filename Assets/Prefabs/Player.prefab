@@ -130,10 +130,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.20664264, y: 0.08130664}
+  m_Offset: {x: 0, y: 0.08130664}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.31132075, y: 0.6419753}
     oldSize: {x: 1.06, y: 0.81}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -205,10 +205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7211564644855903648}
-  targetDisplacement: 5
-  upDist: 2
-  downDist: 1
-  heightBuffer: 0.5
+  targetDisplacement: 2.5
+  upDist: 0.5
+  downDist: 0.05
+  heightBuffer: 0.75
   targetObject: {fileID: 8338761017202823353}
   layerMask:
     serializedVersion: 2
@@ -276,7 +276,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.21202403, y: -0.33000007}
+  m_Offset: {x: -0.02, y: -0.33000007}
   m_Size: {x: 0.6520331, y: 0.100000046}
   m_Direction: 1
 --- !u!95 &7211564644855903648
