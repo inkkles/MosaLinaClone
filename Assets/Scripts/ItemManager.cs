@@ -181,11 +181,25 @@ public class ItemManager : MonoBehaviour
 
     }
 
+    private Vector3 getShootPoint()
+    {
+        
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) //if player looking down
+        {
+            return new Vector3(this.transform.position.x + (this.transform.localScale.x / 10), this.transform.position.y - 0.2f, this.transform.position.z);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) //if player looking up
+        {
+            return new Vector3(this.transform.position.x + (this.transform.localScale.x / 6), this.transform.position.y + 0.75f, this.transform.position.z);
+        }
+        //not looking up or down
+        return new Vector3(this.transform.position.x + (this.transform.localScale.x / 1.5f), this.transform.position.y + 0.2f, this.transform.position.z);
+    }
 
 
     private void SpawnBox()
     {
-        GameObject box = Instantiate(objbox, this.transform.position, Quaternion.identity);
+        GameObject box = Instantiate(objbox, getShootPoint(), Quaternion.identity);
         box.GetComponent<BoxBehavior>().direction = direction;
     }
 
@@ -194,10 +208,10 @@ public class ItemManager : MonoBehaviour
         GameObject spear;
         if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
         {
-            spear = Instantiate(objspear, this.transform.position, Quaternion.Euler(0, 0, 90));
+            spear = Instantiate(objspear, getShootPoint(), Quaternion.Euler(0, 0, 90));
         } else
         {
-            spear = Instantiate(objspear, this.transform.position, Quaternion.identity);
+            spear = Instantiate(objspear, getShootPoint(), Quaternion.identity);
         }
             
         spear.GetComponent<SpearMovement>().direction = direction;
@@ -205,19 +219,19 @@ public class ItemManager : MonoBehaviour
 
     private void SpawnMushroom()
     {
-        GameObject mushroom = Instantiate(objmushroom, this.transform.position, Quaternion.identity);
+        GameObject mushroom = Instantiate(objmushroom, getShootPoint(), Quaternion.identity);
         mushroom.GetComponent<LegacyMushroomBehavior>().direction = direction;
     }
 
     private void SpawnGravBoots()
     {
-        GameObject gravBoots = Instantiate(objgravboots, this.transform.position, Quaternion.identity);
+        GameObject gravBoots = Instantiate(objgravboots, getShootPoint(), Quaternion.identity);
         gravBoots.GetComponent<GravBootsBehavior>().direction = direction;
     }
 
     private void SpawnPhaser()
     {
-        GameObject phaser = Instantiate(objphaser, this.transform.position, Quaternion.identity);
+        GameObject phaser = Instantiate(objphaser, getShootPoint(), Quaternion.identity);
         phaser.GetComponent<PhaserBehavior>().direction = direction;
     }
 

@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/FinalScene.unity
     guid: ac64fa726f2e1c64bb623541e4e0058f
+  - enabled: 1
+    path: Assets/Scenes/Levels/BueSalvage2.unity
+    guid: ec960b8f163caaf43828f77e70466e99
+  - enabled: 1
+    path: Assets/Scenes/Levels/Green14.unity
+    guid: b9f34ba2080cfd741ae940a97b76f688
   m_configObjects: {}
